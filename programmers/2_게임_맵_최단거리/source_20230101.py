@@ -1,25 +1,25 @@
 from collections import deque
-
 def solution(maps):
-    n, m = len(maps), len(maps[0])
-    visited = [[False for _ in range(m)] for _ in range(n)]
-    return bfs(maps, 0, 0, visited)
-    
-def bfs(maps, x, y, visited):
-    n, m = len(maps), len(maps[0])
-    queue = deque([(x, y)])
-    visited[x][y] = True
-    distance = {(x, y): 0}
-    dx = [-1, 1, 0, 0]
-    dy = [0, 0, -1, 1]
-    while queue:
-        x, y = queue.popleft()
+    answer = 0
+    arr = deque()
+    arr.append([0,0,0])
+    maps[0][0] = -1
+    answer = bfs(maps, arr, [len(maps), len(maps[0])])
+    return answer
+
+def bfs(maps, arr, correct):
+    go_pos = [[-1,0,0,1],[0,-1,1,0]]
+    while True:
+        if len(arr) == 0 : break
+        data = arr.popleft()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if 0<=nx<n and 0<=ny<m and not visited[nx][ny] and maps[nx][ny]:
-                if (nx, ny) == (n-1, m-1): return distance[(x, y)] + 2
-                queue.append((nx, ny))
-                distance[(nx, ny)] = distance[(x, y)] + 1
-                visited[nx][ny] = True
+            new_y = data[0] + go_pos[0][i]
+            new_x = data[1] + go_pos[1][i]
+            if new_y == correct[0]-1 and new_x == correct[1]-1:
+                return data[2]+2
+            if new_y not in range(correct[0]) or new_x not in range(correct[1]):
+                continue
+            if maps[new_y][new_x] == 1:
+                maps[new_y][new_x] = -1
+                arr.append([new_y, new_x, data[2]+1])       
     return -1

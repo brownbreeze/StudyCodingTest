@@ -14,7 +14,7 @@ def solution(picks, minerals):
     while True:
         if len(queue) == 0 : break
         idx, cur_pick, cur_piro = queue.popleft()
-        if idx >= mnl_len-1 :
+        if idx == mnl_len or cur_pick.count(0) == 3:
             answer = cur_piro if answer == -1 or cur_piro < answer else answer
             continue
         

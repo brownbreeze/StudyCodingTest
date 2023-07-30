@@ -1,0 +1,17 @@
+Easy
+1. OddOccurrencesInArray
+Find value that occurs in odd number of elements.
+Task Score
+77%
+Correctness
+100%
+Performance
+50%
+
+#######################################################
+▶ medium2 
+medium random test n=100,003 ✘RUNTIME ERROR 
+tested program terminated with exit code 1
+▶ big2 
+big random test n=999,999 ✘RUNTIME ERROR 
+tested program terminated with exit code 1

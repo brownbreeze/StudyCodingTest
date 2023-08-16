@@ -1,0 +1,51 @@
+Easy
+1. TapeEquilibrium
+Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|.
+Task Score
+38%
+Correctness
+42%
+Performance
+33%
+
+#######################################################
+Example tests
+▶ example 
+example test ✔OK
+expand allCorrectness tests
+▶ double 
+two elements ✘WRONG ANSWER 
+got 0 expected 2000
+▶ simple_positive 
+simple test with positive numbers, length = 5 ✔OK
+1. 0.012 s OK
+2. 0.012 s OK
+▶ simple_negative 
+simple test with negative numbers, length = 5 ✘WRONG ANSWER 
+got -27 expected 3
+▶ simple_boundary 
+only one element on one of the sides ✔OK
+▶ small_random 
+random small, length = 100 ✘WRONG ANSWER 
+got -12771 expected 39
+▶ small_range 
+range sequence, length = ~1,000 ✔OK
+▶ small 
+small elements ✘WRONG ANSWER 
+got 0 expected 20
+expand allPerformance tests
+▶ medium_random1 
+random medium, numbers from 0 to 100, length = ~10,000 ✔OK
+▶ medium_random2 
+random medium, numbers from -1,000 to 50, length = ~10,000 ✘WRONG ANSWER 
+got -4731154 expected 196
+▶ large_ones 
+large sequence, numbers from -1 to 1, length = ~100,000 ✘WRONG ANSWER 
+got 248 expected 0
+▶ large_random 
+random large, length = ~100,000 ✘WRONG ANSWER 
+got 110697 expected 1
+▶ large_sequence 
+large sequence, length = ~100,000 ✔OK
+▶ large_extreme 
+large test with maximal and minimal values, length = ~100,000

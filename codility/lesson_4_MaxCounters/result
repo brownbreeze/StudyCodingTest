@@ -1,0 +1,20 @@
+Medium
+1. MaxCounters
+Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.
+Task Score
+66%
+Correctness
+100%
+Performance
+40%
+
+#######################################################
+▶ large_random1 
+large random test, 2120 max_counter operations ✘TIMEOUT ERROR 
+running time: 3.012 sec., time limit: 0.224 sec.
+▶ large_random2 
+large random test, 10000 max_counter operations ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.
+▶ extreme_large 
+all max_counter operations ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.

@@ -1,0 +1,14 @@
+Medium
+1. CountDiv
+Compute number of integers divisible by k in range [a..b].
+Task Score
+25%
+Correctness
+50%
+Performance
+0%
+
+#######################################################
+The following issues have been detected: wrong answers, timeout errors.
+
+For example, for the input [0, 0, 11] the solution returned a wrong answer (got 0 expected 1).

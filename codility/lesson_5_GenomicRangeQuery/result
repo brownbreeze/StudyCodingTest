@@ -1,0 +1,14 @@
+Medium
+1. GenomicRangeQuery
+Find the minimal nucleotide from a range of sequence DNA.
+Task Score
+62%
+Correctness
+100%
+Performance
+0%
+
+#######################################################
+Analysis summary
+The following issues have been detected: timeout errors.
+

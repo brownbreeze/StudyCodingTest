@@ -1,0 +1,23 @@
+Medium
+1. GenomicRangeQuery
+Find the minimal nucleotide from a range of sequence DNA.
+Task Score
+62%
+Correctness
+100%
+Performance
+0%
+
+###########################################################
+The following issues have been detected: timeout errors.
+
+▶almost_all_same_letters 
+GGGGGG..??..GGGGGG..??..GGGGGG ✘TIMEOUT ERROR 
+running time: 4.960 sec., time limit: 0.992 sec.
+▶ large_random 
+large random string, length ✘TIMEOUT ERROR 
+running time: 5.108 sec., time limit: 0.992 sec.
+▶ extreme_large 
+all max ranges ✘TIMEOUT ERROR 
+running time: 5.080 sec., time limit: 1.120 sec.
+

@@ -1,0 +1,28 @@
+Medium
+1. MinAvgTwoSlice
+Find the minimal average of any slice containing at least two elements.
+Task Score
+50%
+Correctness
+100%
+Performance
+0%
+
+#######################################################
+Detected time complexity:
+O(N ** 3)
+▶ medium_random 
+random, N = ~700 ✘TIMEOUT ERROR 
+running time: 0.672 sec., time limit: 0.100 sec.
+▶ large_ones 
+numbers from -1 to 1, N = ~100,000 ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.
+▶ large_random 
+random, N = ~100,000 ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.
+▶ extreme_values 
+all maximal values, N = ~100,000 ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.
+▶ large_sequence 
+many seqeneces, N = ~100,000 ✘TIMEOUT ERROR 
+Killed. Hard limit reached: 6.000 sec.

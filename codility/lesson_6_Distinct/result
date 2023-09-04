@@ -1,0 +1,14 @@
+Easy
+1. Distinct
+Compute number of distinct values in an array.
+Task Score
+8%
+Correctness
+11%
+Performance
+0%
+
+#######################################################
+The following issues have been detected: wrong answers.
+
+For example, for the input [] the solution returned a wrong answer (got -1000001 expected 0).

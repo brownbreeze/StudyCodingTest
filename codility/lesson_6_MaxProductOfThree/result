@@ -1,0 +1,16 @@
+Easy
+1. MaxProductOfThree
+Maximize A[P] * A[Q] * A[R] for any triplet (P, Q, R).
+Task Score
+66%
+Correctness
+50%
+Performance
+80%
+
+#######################################################
+The following issues have been detected: wrong answers.
+
+For example, for the input [-10, -2, -4] the solution returned a wrong answer (got 0 expected -80).
+
+

@@ -1,0 +1,15 @@
+Medium
+1. NumberOfDiscIntersections
+Compute the number of intersections in a sequence of discs.
+Task Score
+50%
+Correctness
+100%
+Performance
+0%
+
+#######################################################
+The following issues have been detected: timeout errors.
+Detected time complexity:
+O(N**2)
+

@@ -1,0 +1,15 @@
+Easy
+1. Fish
+N voracious fish are moving along a river. Calculate how many fish are alive.
+Task Score
+0%
+Correctness
+0%
+Performance
+0%
+
+###########
+The following issues have been detected: wrong answers.
+
+For example, for the input ([0, 1], [1, 1]) the solution returned a wrong answer (got 0 expected 2).
+

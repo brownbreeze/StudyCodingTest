@@ -1,0 +1,14 @@
+Easy
+1. Dominator
+Find an index of an array such that its value occurs at more than half of indices in the array.
+Task Score
+83%
+Correctness
+75%
+Performance
+100%
+
+#######################################################
+The following issues have been detected: wrong answers, runtime errors.
+
+For example, for the input [] the solution terminated unexpectedly.

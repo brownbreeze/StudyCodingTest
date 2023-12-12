@@ -6,11 +6,11 @@ def get_time(times, i):
 
 def solution(plans):
     answer = []
-    qz = deque(plans) # leftpop
     left_time = 0
     left_name = ''
     waiting = [] # append, pop
-    
+    plans.sort(key = lambda x :x[1])
+    qz = deque(plans) # leftpop
     t = -1 
     while True:
         if t > 25*60 + 60: break
@@ -23,6 +23,7 @@ def solution(plans):
             plan = qz.popleft()
             left_name = plan[0]
             left_time = int(plan[2])
+            print('<=', t, left_name, ' pop')
         # 하던거 해 
         if left_name != '':
             left_time -= 1
@@ -34,5 +35,6 @@ def solution(plans):
             val = waiting.pop()
             left_name = val[0]
             left_time = val[1]
-                
+        if left_name != '' :
+            print(t, left_name, left_time)
     return answer

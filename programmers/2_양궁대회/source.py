@@ -15,33 +15,36 @@ def calculate(aps, lis):
 def solution(n, info):
     answer_val = 0
     answer = []
+    max_pos = 0
     li = [0 for _ in range(11)]    
     visited = []
-    queue = deque([[n,0,li]]) # cnt, idx, list
+    queue = deque([[n,-1,li]]) # cnt, idx, list
 
     while queue:
         temp = queue.popleft()
-        # print(temp)
         cnt = temp[0]
         idx = temp[1]
-        li = temp[2] 
-        if idx >10: continue
-        if cnt == 0 :
+        li = temp[2].copy()
+        if max_pos !=0 and max_pos <idx:
+            break
+        if cnt == 0 or idx == 10:
+            print('cnt ', li)
             val = 0 #calculate(info, li)
+            if max_pos == 0 :
+                max_pos = idx 
             if answer_val < val:
                 answer_val = val
                 answer = li
+            break
+        
         idx +=1 
         queue.append([cnt, idx, li])
-        
-        if idx == 10:
+        if idx == 9:
             li[idx] += cnt
             queue.append([0, idx, li])
+            li[idx] -= cnt
         elif cnt >= info[idx]+1:            
             cnt -=  info[idx]+1
             li[idx] = info[idx]+1
             queue.append([cnt, idx, li])
-        # break
-    print(answer_val)
-    print(answer)
     return answer

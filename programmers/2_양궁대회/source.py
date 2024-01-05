@@ -23,28 +23,32 @@ def solution(n, info):
     while queue:
         temp = queue.popleft()
         cnt = temp[0]
-        idx = temp[1]
-        li = temp[2].copy()
-        if max_pos !=0 and max_pos <idx:
-            break
-        if cnt == 0 or idx == 10:
-            print('cnt ', li)
-            val = 0 #calculate(info, li)
-            if max_pos == 0 :
-                max_pos = idx 
-            if answer_val < val:
+        idx = temp[1]+1
+        li = temp[2]
+        
+        if cnt == 0 :
+            val = calculate(info, li)
+            if answer_val <= val:
                 answer_val = val
                 answer = li
-            break
+            # print('tota::\t', cnt, li, val)
+            continue
         
-        idx +=1 
-        queue.append([cnt, idx, li])
-        if idx == 9:
+        if idx > 10:
+            continue
+        queue.append([cnt, idx, li.copy()])
+        
+        if idx == 10:
             li[idx] += cnt
-            queue.append([0, idx, li])
+            queue.append([0, idx, li.copy()])
             li[idx] -= cnt
         elif cnt >= info[idx]+1:            
             cnt -=  info[idx]+1
             li[idx] = info[idx]+1
-            queue.append([cnt, idx, li])
+            queue.append([cnt, idx, li.copy()])
+            li[idx] = 0
+            
+    if answer_val <=0 : 
+        return [-1]
+    
     return answer

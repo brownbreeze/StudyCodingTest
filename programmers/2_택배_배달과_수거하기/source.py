@@ -1,38 +1,31 @@
+def del_zero(li, n):
+    while True:
+        if len(li) == 0 : break
+        if li[-1]==0:
+            li.pop()
+            continue
+        elif n==0:
+            break
+        elif li[-1] <= n:
+            n -= li[-1]
+            li.pop()
+        else:# li[-1] > n:
+            li[-1]-= n
+            break
+    return li 
+
 def solution(cap, n, deliveries, pickups):
     answer = 0
     
-    # deliver, pickup
-    totals = [[a,b] for a,b in zip(deliveries, pickups)]
-    
+    deliveries = del_zero(deliveries, 0)
+    pickups = del_zero(pickups, 0)
     while True:
-        pos = n-1
-        for a,b in totals[::-1]:
-            if a!=0 or b!=0:
-                break
-            pos-=1
-        else:
+        pos = max(len(deliveries), len(pickups))
+        if pos == 0:
             break
-        # i 는 position
-        c = cap
-        for i in range(n):
-            if c == 0 : break
-            if totals[n-i-1][0] > c:
-                totals[n-i-1][0] -= c
-                c = 0
-            elif totals[n-i-1][0] > 0:
-                c -= totals[n-i-1][0]
-                totals[n-i-1][0] = 0
-        c = cap
-        for i in range(n):
-            if c == 0 : break
-            if totals[n-i-1][1] > c:
-                totals[n-i-1][1] -= c
-                c = 0
-            elif totals[n-i-1][1] > 0:
-                c -= totals[n-i-1][1]
-                totals[n-i-1][1] = 0
+        deliveries = del_zero(deliveries, cap)   
+        pickups = del_zero(pickups, cap)        
         # print(pos)
-        pos +=1
+        # print(deliveries, pickups)
         answer += (pos*2)
-        
     return answer

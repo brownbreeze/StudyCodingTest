@@ -15,7 +15,10 @@ def get_distance(colcnt,rowcnt,x,y,ball):
     by=ball[1]
     for i in range(4):
         nx,ny = third_point(i,rowcnt,colcnt,bx,by)       
-        if nx==x or ny==y:continue
+        if nx==x and by in range(min(ny,y),max(y,ny)):
+            continue
+        elif ny==y and bx in range(min(nx,x),max(nx,x)):
+            continue
         value = min(value,abs(nx-x)**2+abs(ny-y)**2)
     return value
     

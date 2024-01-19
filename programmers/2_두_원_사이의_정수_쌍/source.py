@@ -1,14 +1,22 @@
 def get_dot_cnt_quater(r):
-    lcnt = 0
-    icnt = 0
-    t = r**2
-    for y in range(0,r+1):
-        for x in range(1,r+1):
-            d =y**2+x**2 
-            if d <t:
-                icnt+=1
-            elif d==t:
-                lcnt+=1
+    lcnt = 1
+    icnt = r-1
+    y=r
+    x=0
+    line=r**2
+    while x!=r:
+        x+=1
+        t=x**2
+        while y:
+            if t+y**2<=line:
+                if t+y**2==line:
+                    lcnt+=1
+                    icnt-=1
+                break
+            else:
+                y=y-1      
+        
+        icnt+=(y)
     return lcnt,icnt
 
 def solution(r1, r2):

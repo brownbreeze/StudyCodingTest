@@ -1,22 +1,32 @@
-class Solution:
-    def lowestCommonAncestor(
-        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
-    ) -> "TreeNode":
-        if root == None:
-            return None
+from collections import deque
 
-        left = self.lowestCommonAncestor(root.left, p, q)
-        right = self.lowestCommonAncestor(root.right, p, q)
 
-        if root.val == p.val or root.val == q.val:
-            return root
-        elif left and right:
-            return root
-				else:
-		        return left or right
-        # elif left:
-        #     return left
-        # elif right:
-        #     return right
-        # else:
-        #      reutrn None
+class TreeNode:
+	def __init__(self, l=None, r=None, v=0):
+		self.left = l
+		self.right = r
+		self.value = v
+
+def MaxDepth(root):
+	max_depth = 0
+	if root is None:
+		return max_depth
+	q = deque()
+	q.append((root,1))
+	while q:
+		cur_node, cur_depth = q.popleft()
+		max_depth = max(max_depth, cur_depth)
+		if cur_node.left:
+			q.append((cur_node.left, cur_depth + 1))
+		if cur_node.right:
+			q.append((cur_node.right, cur_depth +1))
+	return max_depth
+
+root = [3,9,20,None, None, 15,7]
+
+root = TreeNode(v=3)
+root.left = TreeNode(v=9)
+root.right = TreeNode(v=20)
+root.right.left = TreeNode(v=15)
+root.right.right = TreeNode(v=7)
+print(MaxDepth(root))

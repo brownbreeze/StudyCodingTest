@@ -3,14 +3,20 @@ import sys
 total = dict()
 
 
-def solution(c):
-    result = 0
+def maketotal(c):
     for i in range(1, c+1):
-        result += (c//i) * i
-    return result
+        if i in total:
+            total[i] += (c//i) * i
+        else:
+            total[i] = (c//i) * i
+
+
+def solution(c):
+    return total[c]
 
 
 input = sys.stdin.readline
 t = int(input())
+maketotal(1000000)
 for _ in range(t):
     print(solution(int(input())))

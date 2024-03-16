@@ -1,31 +1,31 @@
+import sys
 max = 1000000
-m = [1 for i in range(max+1)]  # 해당 값의 약수의 합 f(x)를 담는 메모
+m = [True for i in range(max+1)]  # 해당 값의 약수의 합 f(x)를 담는 메모
 
-m[1] = 0
+m[1] = False
 
-for i in range(2, max+1):
-    j = 2
-    while i * j <= max:  # i*j 값이 최대값이 넘지 않을 때까지
-        m[i*j] = 0  # 소수가 아니야
-        j += 1
+for i in range(2, 1000001):
+    # if not m[i]:
+    #     continue  # 2를 이전에 했다면, 4를 지나칠 수 있게
+    for j in range(i*2, 1000001, i):
+        m[j] = False  # 소수가 아니야
 
 
 def solution(n):
-    for i in range(3, n):
+    global m
+    for i in range(3, n//2+1):
         # print(n, i, n-i)
-        if m[i] == 0:
+        if not m[i]:
             continue
-        if m[n-i] == 0:
+        if not m[n-i]:
             continue
-        return f'{n} = {i} + {n-i}'
-    return "Goldbach's conjecture is wrong."
+        print(f"{n} = {i} + {n-i}")
+        return 0
+    print("Goldbach's conjecture is wrong.")
+    return 0
 
 
-divList = list()
-while True:
-    a = int(input())
-    if a == 0:
-        break
-    divList.append(a)
-for i in divList:
-    print(solution(i))
+n = int(sys.stdin.readline())
+while n != 0:
+    solution(n)
+    n = int(sys.stdin.readline())

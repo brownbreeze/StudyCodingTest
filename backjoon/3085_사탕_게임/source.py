@@ -6,52 +6,69 @@ result = 0
 t = 0
 
 
-def check(y, x, value, d):
-    v = 1
+def check(y, x):
     global t
-    if d == 1:
-        for i in range(y+1, t):
-            if value == map[i][x]:
-                v += 1
-            else:
-                break
-        for i in range(y-1, -1, -1):
-            if value == map[i][x]:
-                v += 1
-            else:
-                break
-    else:
-        for i in range(x+1, t):
-            if value == map[y][i]:
-                v += 1
-            else:
-                break
-        for i in range(x-1, -1, -1):
-            if value == map[y][i]:
-                v += 1
-            else:
-                break
     global result
-    if result < v:
-        result = v
+    v = 1
+    for i in range(y+1, t):
+        if map[y][x] == map[i][x]:
+            v += 1
+        else:
+            break
+    for i in range(y-1, -1, -1):
+        if map[y][x] == map[i][x]:
+            v += 1
+        else:
+            break
+    result = max(result, v)
+
+    v = 1
+    for i in range(x+1, t):
+        if map[y][x] == map[y][i]:
+            v += 1
+        else:
+            break
+    for i in range(x-1, -1, -1):
+        if map[y][x] == map[y][i]:
+            v += 1
+        else:
+            break
+    result = max(result, v)
 
 
 def solution(num):
-    for y in range(num):
-        for x in range(num):
+    for y in range(0, num):
+        for x in range(0, num):
             if x + 1 < num:
-                check(y, x, map[y][x+1], 1)
-                check(y, x+1, map[y][x], 1)
+                # print(y, x, x+1, map[y][x], map[y][x+1], '좌우')
+                tmp = map[y][x+1]
+                map[y][x+1] = map[y][x]
+                map[y][x] = tmp
+
+                check(y, x)
+                check(y, x+1)
+
+                tmp = map[y][x+1]
+                map[y][x+1] = map[y][x]
+                map[y][x] = tmp
+
             if y + 1 < num:
-                check(y, x, map[y+1][x], 0)
-                check(y+1, x, map[y][x], 0)
-            break
-        break
+                # print(y, x, y+1, map[y][x])
+                tmp = map[y+1][x]
+                map[y+1][x] = map[y][x]
+                map[y][x] = tmp
+
+                check(y, x)
+                check(y+1, x)
+
+                tmp = map[y+1][x]
+                map[y+1][x] = map[y][x]
+                map[y][x] = tmp
 
 
 input = sys.stdin.readline
 t = int(input())
 for i in range(t):
-    map.append(input())
+    map.append(list(input()))
 solution(t)
 print(result)

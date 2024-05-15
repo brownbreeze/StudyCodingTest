@@ -26,9 +26,11 @@ def solution(N, number):
         for x in arr:
             for y in arr:
                 c = d[x] + d[y]
-                if c > 9:
+                if c > 9:  # 이게 8이면.. 오류난다..? 왜그럴까
                     break
                 get_values(x, y, c)
+        if number in d:
+            return d[number]
 
         arr.extend(temp_arr)
         arr = list(set(arr))

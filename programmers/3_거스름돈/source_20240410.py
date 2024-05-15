@@ -11,6 +11,6 @@ def solution(n, money):
     for m in money:
         for i in range(m, n+1):
             dp[i] += dp[i-m]
-    print(dp)
-    print(n, money)
+    # print(dp)
+    # print(n, money)
     return dp[n % 1000000007]

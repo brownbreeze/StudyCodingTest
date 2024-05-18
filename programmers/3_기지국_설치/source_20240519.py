@@ -1,25 +1,20 @@
 import math
 def solution(n, stations, w):
     answer = 0
-    if n == 0: return 0
     i = 0 
     wl = w*2+1
-    # arr = list()
 
     for station in stations:
         s = station - w
         e = station + w 
         l = s-1-i
-        answer += math.ceil(l/wl)
-        # arr.append([i,l])
-        # print(math.ceil(l/wl))
-        i = e
+        c = math.ceil(l/wl)
+        # print(i,s,e,l,c,   i+c*wl)
+        answer += c
+        i = e if i+c*wl < e else i+c*wl
     else:
         if i < n:        
-            l = l-1
+            l = n-1-i
+            # print(i,s,e,l)
             answer += math.ceil(l/wl)
-            # arr.append([i,l])
-            # print(math.ceil(l/wl))
-    # print(arr)
-
     return answer

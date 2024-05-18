@@ -9,12 +9,10 @@ def solution(n, stations, w):
         e = station + w 
         l = s-1-i
         c = math.ceil(l/wl)
-        # print(i,s,e,l,c,   i+c*wl)
         answer += c
-        i = e if i+c*wl < e else i+c*wl
+        i = e
     else:
         if i < n:        
-            l = n-1-i
-            # print(i,s,e,l)
+            l = n-i
             answer += math.ceil(l/wl)
     return answer
